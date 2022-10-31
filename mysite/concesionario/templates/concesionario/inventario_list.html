@@ -1,0 +1,38 @@
+<h1>Lista Inventario</h1>
+<h3>Disponibles</h3>
+
+<table>
+
+    <tr>
+        <!--titulos de la tabla-->
+        <th>Placa</th>
+        <th>Modelo</th>
+        <th>Descripción</th>
+        <th>Valor</th>
+        <th>Acciones</th>
+    </tr>
+
+    {% for inventario in inventarios %}
+
+        <tr>
+            <!--seleccionar datos en específico-->
+            <td>{{inventario.placa}}</td>
+            <td>{{inventario.modelo}}</td>
+            <td>{{inventario.descripcion}}</td>
+            <td>{{inventario.valor}}</td>
+            <td>
+                <a href="{% url 'detalleinventario' inventario.id %}">Ver</a>
+            </td>
+        </tr>
+
+    <!--por si la tabla esta vacia
+    {% empty %}
+    <h3> no day datos por mostrar</h3>
+
+    -->
+
+
+
+    {% endfor %}
+
+</table>
